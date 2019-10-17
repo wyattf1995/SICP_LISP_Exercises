@@ -1,0 +1,18 @@
+#lang racket
+(define (cube-rt-iter guess x)
+  (if (good-enough? (improve guess x) guess)
+      guess
+      (cube-rt-iter (improve guess x)
+                    x)))
+
+(define (improve guess x)
+  (/ (+ (* 2 guess)(/ x (* guess guess)))
+     3))
+
+(define (cube x) (* x x x))
+
+(define (good-enough? previous-guess guess)
+  (< (abs (/ (- guess previous-guess) guess)) 0.000000001))
+
+(define (cube-rt x)
+  (cube-rt-iter 1.0 x))

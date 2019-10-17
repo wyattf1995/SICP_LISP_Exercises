@@ -1,0 +1,14 @@
+#lang racket
+
+;Observe that our model of evaluaion allows for combinations
+;whose operators are compound expressions. Use this observation
+;to describe the behavior of the following procedure:
+
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+
+;This proecure takes two integer arguments, one of them added
+;with the absolute value of the other. The if statement
+;states that if b is greater than 0, add it to a, else,
+;if it is less than 0, subtract it from a
+;which gives the same result as the absolute value
